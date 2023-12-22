@@ -1,11 +1,13 @@
 package com.spring.springprojectdemo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
 
 import java.util.List;
 
 @Entity(name = "speakers")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Speaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +20,7 @@ public class Speaker {
     @Lob
     private byte[] speaker_photo;
     @ManyToMany(mappedBy = "speakers")
+    @JsonIgnore
     private List<Session> sessions;
     public Speaker(){
     }

@@ -20,7 +20,7 @@ public class SessionsControllers {
     @GetMapping
     @RequestMapping("{id}")
     public Session get(@PathVariable Long id){
-        return sessionRepository.findById(id).orElse(null);
+        return sessionRepository.getOne(id);
     }
     @PostMapping
     public  Session create(@RequestBody final Session session){
@@ -32,7 +32,7 @@ public class SessionsControllers {
     }
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     public Session update(@PathVariable Long id, @RequestBody Session session){
-        Session existingSession = sessionRepository.findById(id).orElse(null);
+        Session existingSession = sessionRepository.getOne(id);
         BeanUtils.copyProperties(session, existingSession, "session_id");
         return sessionRepository.saveAndFlush(existingSession);
     }
