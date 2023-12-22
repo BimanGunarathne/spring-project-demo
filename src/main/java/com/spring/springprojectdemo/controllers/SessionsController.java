@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/sessions")
-public class SessionsControllers {
+public class SessionsController {
     @Autowired
     private SessionRepository sessionRepository;
     @GetMapping
