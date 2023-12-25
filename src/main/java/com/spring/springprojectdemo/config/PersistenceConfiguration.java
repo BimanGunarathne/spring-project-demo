@@ -1,3 +1,5 @@
+// when this class file is the database configuration file
+
 package com.spring.springprojectdemo.config;
 
 import org.springframework.boot.jdbc.DataSourceBuilder;
